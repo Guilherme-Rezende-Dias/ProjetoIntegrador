@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Moda Elegante - Sua Loja de Roupas Online</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#2563eb',
+secondary: '#f97316'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+}
+}
+</script>
+<style>
+:where([class^="ri-"])::before { content: "\f3c2"; }
+.newsletter-form {
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+display: none;
+z-index: 50;
+}
+.overlay {
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+bottom: 0;
+background: rgba(0, 0, 0, 0.5);
+display: none;
+z-index: 40;
+}
+</style>
+</head>
+<body class="bg-gray-50">
+<div id="promo-banner" class="bg-primary text-white py-2 text-center">
+<p class="text-sm">Frete Grátis em compras acima de R$ 299! Aproveite!</p>
+</div>
+<header class="bg-white shadow-sm sticky top-0 z-30">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between h-16">
+<div class="font-['Pacifico'] text-2xl text-primary">logo</div>
+<div class="flex-1 max-w-2xl mx-8">
+<div class="relative">
+<input type="text" placeholder="Buscar produtos..." class="w-full px-4 py-2 border rounded-full focus:outline-none focus:ring-2 focus:ring-primary/20">
+<button class="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary">
+<i class="ri-search-line ri-lg"></i>
+</button>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<button class="relative w-10 h-10 flex items-center justify-center">
+<i class="ri-shopping-cart-line ri-lg"></i>
+<span class="absolute -top-1 -right-1 bg-secondary text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">3</span>
+</button>
+<button class="w-10 h-10 flex items-center justify-center">
+<i class="ri-user-line ri-lg"></i>
+</button>
+</div>
+</div>
+<nav class="py-4">
+<ul class="flex gap-8 text-sm font-medium">
+<li><a href="#" class="hover:text-primary">Novidades</a></li>
+<li><a href="#" class="hover:text-primary">Feminino</a></li>
+<li><a href="#" class="hover:text-primary">Masculino</a></li>
+<li><a href="#" class="hover:text-primary">Acessórios</a></li>
+<li><a href="#" class="hover:text-primary">Ofertas</a></li>
+</ul>
+</nav>
+</div>
+</header>
+<main>
+<section class="relative bg-gray-100 overflow-hidden">
+<div class="container mx-auto px-4 py-16 flex items-center">
+<div class="w-1/2 pr-12">
+<h1 class="text-5xl font-bold mb-6">Coleção Outono 2025</h1>
+<p class="text-lg text-gray-600 mb-8">Descubra as últimas tendências em moda com até 40% de desconto. Renove seu guarda-roupa com estilo e economia.</p>
+<button class="bg-primary text-white px-8 py-3 rounded-button font-medium hover:bg-primary/90">Comprar Agora</button>
+</div>
+<div class="w-1/2">
+<img src="https://public.readdy.ai/ai/img_res/eb49767570f66f6700bc65229efcab41.jpg" class="rounded-lg shadow-lg" alt="Coleção Outono">
+</div>
+</div>
+</section>
+<section class="py-16 bg-white">
+<div class="container mx-auto px-4">
+<h2 class="text-3xl font-bold mb-8">Categorias em Destaque</h2>
+<div class="grid grid-cols-4 gap-6">
+<a href="#" class="group relative rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/0f8028be17e4a271c4a15abf496d0a49.jpg" class="w-full h-64 object-cover" alt="Feminino">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+<span class="absolute bottom-4 left-4 text-white text-xl font-medium">Feminino</span>
+</a>
+<a href="#" class="group relative rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/f4b9253e5d09abff1574c1efd4eadd2c.jpg" class="w-full h-64 object-cover" alt="Masculino">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+<span class="absolute bottom-4 left-4 text-white text-xl font-medium">Masculino</span>
+</a>
+<a href="#" class="group relative rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/38114810ba7305f1ac63f132b34f794d.jpg" class="w-full h-64 object-cover" alt="Acessórios">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+<span class="absolute bottom-4 left-4 text-white text-xl font-medium">Acessórios</span>
+</a>
+<a href="#" class="group relative rounded-lg overflow-hidden">
+<img src="https://public.readdy.ai/ai/img_res/49c16768288f77c21b1fa30125b11a26.jpg" class="w-full h-64 object-cover" alt="Casual">
+<div class="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition-colors"></div>
+<span class="absolute bottom-4 left-4 text-white text-xl font-medium">Casual</span>
+</a>
+</div>
+</div>
+</section>
+<section class="py-16 bg-gray-50">
+<div class="container mx-auto px-4">
+<div class="flex items-center justify-between mb-8">
+<h2 class="text-3xl font-bold">Produtos em Destaque</h2>
+<div class="flex gap-2">
+<button class="px-4 py-2 text-sm font-medium rounded-full bg-white shadow-sm hover:bg-gray-50">Mais Vendidos</button>
+<button class="px-4 py-2 text-sm font-medium rounded-full bg-white shadow-sm hover:bg-gray-50">Novidades</button>
+<button class="px-4 py-2 text-sm font-medium rounded-full bg-white shadow-sm hover:bg-gray-50">Promoções</button>
+</div>
+</div>
+<div class="grid grid-cols-4 gap-6">
+<div class="bg-white rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img src="https://public.readdy.ai/ai/img_res/dd9d96490f10dd08e5f1b5e48603a91f.jpg" class="w-full h-72 object-cover" alt="Vestido Elegante">
+<button class="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<i class="ri-heart-line"></i>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-medium mb-2">Vestido Elegante</h3>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-sm line-through text-gray-400">R$ 399,90</span>
+<span class="text-lg font-medium text-primary">R$ 299,90</span>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-button hover:bg-primary/90">Adicionar ao Carrinho</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img src="https://public.readdy.ai/ai/img_res/cc625f94ec85f77d2afa55a62a9648de.jpg" class="w-full h-72 object-cover" alt="Blazer Masculino">
+<button class="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<i class="ri-heart-line"></i>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-medium mb-2">Blazer Masculino</h3>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-lg font-medium text-primary">R$ 459,90</span>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-button hover:bg-primary/90">Adicionar ao Carrinho</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img src="https://public.readdy.ai/ai/img_res/24972648ee3980cbe480ba8a05cad9c8.jpg" class="w-full h-72 object-cover" alt="Bolsa de Couro">
+<button class="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<i class="ri-heart-line"></i>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-medium mb-2">Bolsa de Couro</h3>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-sm line-through text-gray-400">R$ 599,90</span>
+<span class="text-lg font-medium text-primary">R$ 499,90</span>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-button hover:bg-primary/90">Adicionar ao Carrinho</button>
+</div>
+</div>
+<div class="bg-white rounded-lg shadow-sm overflow-hidden group">
+<div class="relative">
+<img src="https://public.readdy.ai/ai/img_res/f03fe6bebc78351c4b8f3f8a3182bc86.jpg" class="w-full h-72 object-cover" alt="Tênis Casual">
+<button class="absolute top-4 right-4 w-8 h-8 bg-white rounded-full shadow-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+<i class="ri-heart-line"></i>
+</button>
+</div>
+<div class="p-4">
+<h3 class="font-medium mb-2">Tênis Casual</h3>
+<div class="flex items-center gap-2 mb-2">
+<span class="text-lg font-medium text-primary">R$ 299,90</span>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-button hover:bg-primary/90">Adicionar ao Carrinho</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white py-16">
+<div class="container mx-auto px-4">
+<div class="bg-primary/5 rounded-2xl p-12 flex items-center justify-between">
+<div class="max-w-xl">
+<h2 class="text-3xl font-bold mb-4">Receba Nossas Novidades</h2>
+<p class="text-gray-600 mb-6">Cadastre-se para receber ofertas exclusivas e fique por dentro das últimas tendências da moda.</p>
+<div class="flex gap-4">
+<input type="email" placeholder="Seu melhor e-mail" class="flex-1 px-4 py-3 rounded-button border focus:outline-none focus:ring-2 focus:ring-primary/20">
+<button id="newsletter-btn" class="bg-primary text-white px-8 py-3 rounded-button hover:bg-primary/90">Cadastrar</button>
+</div>
+</div>
+<img src="https://public.readdy.ai/ai/img_res/bc7dde5b639e5affea944080750dfc93.jpg" class="w-96 rounded-lg" alt="Newsletter">
+</div>
+</div>
+</section>
+</main>
+<footer class="bg-gray-900 text-white py-16">
+<div class="container mx-auto px-4">
+<div class="grid grid-cols-4 gap-8 mb-12">
+<div>
+<h3 class="font-['Pacifico'] text-2xl mb-6">logo</h3>
+<p class="text-gray-400">Sua loja online de moda com as últimas tendências e melhor qualidade.</p>
+</div>
+<div>
+<h4 class="font-medium mb-4">Institucional</h4>
+<ul class="space-y-2 text-gray-400">
+<li><a href="#" class="hover:text-white">Sobre Nós</a></li>
+<li><a href="#" class="hover:text-white">Trabalhe Conosco</a></li>
+<li><a href="#" class="hover:text-white">Política de Privacidade</a></li>
+<li><a href="#" class="hover:text-white">Termos de Uso</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-medium mb-4">Ajuda</h4>
+<ul class="space-y-2 text-gray-400">
+<li><a href="#" class="hover:text-white">Central de Atendimento</a></li>
+<li><a href="#" class="hover:text-white">Trocas e Devoluções</a></li>
+<li><a href="#" class="hover:text-white">Rastreamento de Pedidos</a></li>
+<li><a href="#" class="hover:text-white">Perguntas Frequentes</a></li>
+</ul>
+</div>
+<div>
+<h4 class="font-medium mb-4">Redes Sociais</h4>
+<div class="flex gap-4">
+<a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
+<i class="ri-instagram-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
+<i class="ri-facebook-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
+<i class="ri-twitter-x-line"></i>
+</a>
+<a href="#" class="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-white/20">
+<i class="ri-pinterest-line"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="pt-8 border-t border-gray-800 text-center text-gray-400">
+<p>&copy; 2025 logo. Todos os direitos reservados.</p>
+</div>
+</div>
+</footer>
+<div class="newsletter-form bg-white p-6 rounded-lg shadow-lg max-w-md w-full" id="newsletter-modal">
+<div class="text-center mb-6">
+<i class="ri-mail-send-line text-primary text-4xl mb-4"></i>
+<h3 class="text-xl font-bold mb-2">Cadastro Realizado!</h3>
+<p class="text-gray-600">Obrigado por se cadastrar em nossa newsletter. Em breve você receberá nossas novidades!</p>
+</div>
+<button class="w-full bg-primary text-white py-2 rounded-button hover:bg-primary/90" onclick="closeNewsletterModal()">Fechar</button>
+</div>
+<div class="overlay" id="overlay"></div>
+<script>
+const newsletterBtn = document.getElementById('newsletter-btn');
+const newsletterModal = document.getElementById('newsletter-modal');
+const overlay = document.getElementById('overlay');
+newsletterBtn.addEventListener('click', () => {
+newsletterModal.style.display = 'block';
+overlay.style.display = 'block';
+});
+function closeNewsletterModal() {
+newsletterModal.style.display = 'none';
+overlay.style.display = 'none';
+}
+overlay.addEventListener('click', closeNewsletterModal);
+document.querySelectorAll('.ri-heart-line').forEach(heart => {
+heart.addEventListener('click', (e) => {
+e.preventDefault();
+heart.classList.toggle('ri-heart-line');
+heart.classList.toggle('ri-heart-fill');
+heart.classList.toggle('text-red-500');
+});
+});
+</script>
+</body>
+</html>
