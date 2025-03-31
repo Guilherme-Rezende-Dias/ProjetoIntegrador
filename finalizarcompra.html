@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Finalizar Compra - Estilo Moderno</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .checkout-header {
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .checkout-form {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .form-section {
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 20px;
+        }
+        
+        .form-section:last-child {
+            border-bottom: none;
+        }
+        
+        .form-section h2 {
+            margin-bottom: 15px;
+            color: #333;
+            font-size: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 15px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .payment-method {
+            flex: 1;
+            padding: 15px;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        
+        .payment-method input[type="radio"] {
+            display: none;
+        }
+        
+        .payment-method.selected,
+        .payment-method:hover {
+            border-color: #e74c3c;
+            background-color: #f9f9f9;
+        }
+        
+        .confirm-btn {
+            width: 100%;
+            padding: 15px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        
+        .confirm-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        .qr-code-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+        
+        @media (max-width: 600px) {
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="checkout-header">
+            <h1>Finalizar Compra</h1>
+        </div>
+        
+        <form class="checkout-form" id="checkoutForm">
+            <div class="form-section">
+                <h2>Endereço de Entrega</h2>
+                <div class="form-group">
+                    <label for="cep">CEP</label>
+                    <input type="text" id="cep" name="cep" placeholder="Digite seu CEP" required>
+                </div>
+                <div class="form-group">
+                    <label for="endereco">Endereço</label>
+                    <input type="text" id="endereco" name="endereco" placeholder="Rua, Número" required>
+                </div>
+                <div class="form-group">
+                    <label for="complemento">Complemento</label>
+                    <input type="text" id="complemento" name="complemento" placeholder="Apartamento, bloco, etc. (opcional)">
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade</label>
+                    <input type="text" id="cidade" name="cidade" required>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado</label>
+                    <select id="estado" name="estado" required>
+                        <option value="">Selecione o Estado</option>
+                        <option value="SP">São Paulo</option>
+                        <option value="RJ">Rio de Janeiro</option>
+                        <option value="MG">Minas Gerais</option>
+                        <!-- Adicionar outros estados -->
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h2>Forma de Pagamento</h2>
+                <div class="payment-methods">
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method" value="cartao" checked>
+                        Cartão de Crédito
+                    </label>
+                    <label class="payment-method">
+                        <input type="radio" name="payment-method" value="pix">
+                        PIX
+                    </label>
+                </div>
+                
+                <div id="cartao-section">
+                    <div class="form-group">
+                        <label for="nome-cartao">Nome no Cartão</label>
+                        <input type="text" id="nome-cartao" name="nome-cartao" placeholder="Nome impresso no cartão" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="numero-cartao">Número do Cartão</label>
+                        <input type="text" id="numero-cartao" name="numero-cartao" placeholder="0000 0000 0000 0000" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="validade">Validade</label>
+                        <input type="text" id="validade" name="validade" placeholder="MM/AA" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="cvv">CVV</label>
+                        <input type="text" id="cvv" name="cvv" placeholder="Código de segurança" required>
+                    </div>
+                </div>
+                
+                <div id="pix-section" style="display: none;">
+                    <div class="qr-code-container">
+                        <img src="qrcodepix.webp" alt="QR Code PIX" id="qr-code">
+                    </div>
+                    <p style="text-align: center; margin-top: 15px;">
+                        Escaneie o QR Code para realizar o pagamento via PIX
+                    </p>
+                </div>
+            </div>
+            
+            <button type="submit" class="confirm-btn">Confirmar Pedido</button>
+        </form>
+    </div>
+
+    <script>
+        // Payment method selection toggle
+        const paymentMethods = document.querySelectorAll('.payment-method');
+        const cartaoSection = document.getElementById('cartao-section');
+        const pixSection = document.getElementById('pix-section');
+
+        paymentMethods.forEach(method => {
+            method.addEventListener('click', () => {
+                paymentMethods.forEach(m => m.classList.remove('selected'));
+                method.classList.add('selected');
+
+                const selectedMethod = method.querySelector('input').value;
+                if (selectedMethod === 'cartao') {
+                    cartaoSection.style.display = 'block';
+                    pixSection.style.display = 'none';
+                } else {
+                    cartaoSection.style.display = 'none';
+                    pixSection.style.display = 'block';
+                }
+            });
+        });
+
+        // Initial selection
+        paymentMethods[0].classList.add('selected');
+
+        // Form submission
+        document.getElementById('checkoutForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pedido confirmado com sucesso!');
+        });
+    </script>
+</body>
+</html>

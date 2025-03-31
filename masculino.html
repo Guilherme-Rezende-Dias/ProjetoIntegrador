@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="carrinho.js"></script>
+    <title>ModaStyle - Moda Masculina</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            font-size: 20px;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .icon span {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            border-radius: 50%;
+            width: 18px;
+            height: 18px;
+            font-size: 12px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+        
+        .nav-tabs a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            border-bottom: 2px solid transparent;
+            transition: all 0.3s;
+        }
+        
+        .nav-tabs a:hover, .nav-tabs a.active {
+            color: #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+        }
+        
+        .page-title {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .page-title h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e74c3c;
+            display: inline-block;
+        }
+        
+        .category-section {
+            margin-bottom: 50px;
+        }
+        
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-title {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+        
+        .product-price {
+            font-weight: bold;
+            font-size: 18px;
+            margin-bottom: 15px;
+            color: #e74c3c;
+        }
+        
+        .btn {
+            padding: 12px 24px;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            text-decoration: none;
+            display: block;
+            text-align: center;
+        }
+        
+        .btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-column h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-column p {
+            margin-bottom: 10px;
+            color: #ccc;
+            line-height: 1.5;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-top">
+                <div class="logo">FashionStore</div>
+                <div class="header-icons">
+                    <div class="icon">
+                        <a href="conta.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                                <circle cx="12" cy="7" r="4"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="icon">
+                        <a href="carrinho.html">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="9" cy="21" r="1"></circle>
+                                <circle cx="20" cy="21" r="1"></circle>
+                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                            </svg>
+                        </a>
+                        <span>0</span>
+                    </div>
+                </div>
+            </div>
+            <nav>
+                <ul class="nav-tabs">
+                    <li><a href="main.html">Início</a></li>
+                    <li><a href="masculino.html">Masculino</a></li>
+                    <li><a href="feminino.html" >Feminino</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-title">
+        <div class="container">
+            <h1>Moda Masculina</h1>
+            <p>Conheça nossa coleção exclusiva para homens</p>
+        </div>
+    </section>
+
+    <main class="container">
+        <section class="category-section">
+            <h2 class="section-title">Novidades</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="camiseta-basica-masculina.jpg" alt="Camiseta Básica Preta" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta Básica Preta</h3>
+                        <div class="product-price">R$ 59,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="calca-jeans-slim.jpg" alt="Calça Jeans Slim Fit" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Calça Jeans Slim Fit</h3>
+                        <div class="product-price">R$ 149,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="camiseta-social-azul.jpg" alt="Camiseta Social Azul" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta Social Azul</h3>
+                        <div class="product-price">R$ 139,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="jaqueta-jeans-masculina.jpg" alt="Jaqueta Jeans Vintage" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Jaqueta Jeans Vintage</h3>
+                        <div class="product-price">R$ 189,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="category-section">
+            <div class="products-grid">
+                <div class="product-card">
+                    <img src="camiseta-estamapda.jpg" alt="Camiseta Estampada" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Camiseta Estampada</h3>
+                        <div class="product-price">R$ 79,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="bermuda-cinza.jpg" alt="Bermuda Casual Cinza" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bermuda Casual Cinza</h3>
+                        <div class="product-price">R$ 89,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="sueter-masculino-listrado.jpg" alt="Sueter Listrado Marinho" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Sueter Listrado Marinho</h3>
+                        <div class="product-price">R$ 159,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <img src="bone-preto.jpg" alt="Bone Basico Preto" class="product-img">
+                    <div class="product-info">
+                        <h3 class="product-title">Bone Basico Preto</h3>
+                        <div class="product-price">R$ 49,90</div>
+                        <a href="#" class="btn">Adicionar ao carrinho</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Sobre a Loja</h3>
+                    <p>A ModaStyle é especializada em roupas de alta qualidade para homens e mulheres. Nossa missão é oferecer estilo e conforto com preços acessíveis.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Úteis</h3>
+                    <ul>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Trocas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contato</h3>
+                    <p>Rua das Flores, 123<br>
+                    Centro, São Paulo - SP<br>
+                    CEP: 01234-567<br>
+                    Tel: (11) 1234-5678<br>
+                    Email: contato@modastyle.com.br</p>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 ModaStyle. Todos os direitos reservados.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

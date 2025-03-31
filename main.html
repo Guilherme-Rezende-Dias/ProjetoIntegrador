@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="carrinho.js"></script>
+    <title>Estilo Moderno - Sua loja de roupas</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: #fff;
+            padding: 20px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .header-right {
+            display: flex;
+            align-items: center;
+        }
+        
+        .header-icons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .icon {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .icon:hover {
+            color: #e74c3c;
+        }
+        
+        .icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .icon span {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background-color: #e74c3c;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            width: 18px;
+            height: 18px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .navigation {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            padding: 10px 0;
+        }
+        
+        .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            font-size: 16px;
+            padding: 10px 0;
+            transition: color 0.3s;
+            display: block;
+        }
+        
+        .nav-links a:hover {
+            color: #e74c3c;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 25px;
+            color: #333;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #e74c3c;
+        }
+        
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 25px;
+            margin-bottom: 50px;
+        }
+        
+        .product-wrapper {
+            position: relative;
+        }
+        
+        .bestseller-tag {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 1;
+        }
+        
+        .product-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 250px;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .product-info {
+            padding: 15px;
+        }
+        
+        .product-name {
+            font-size: 16px;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .product-price {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .original-price {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .discount-price {
+            font-weight: bold;
+            font-size: 18px;
+            color: #e74c3c;
+        }
+        
+        .discount-tag {
+            background-color: #e74c3c;
+            color: white;
+            padding: 2px 6px;
+            font-size: 12px;
+            border-radius: 3px;
+            margin-left: 5px;
+        }
+        
+        .buy-btn {
+            width: 100%;
+            padding: 12px 0;
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+        
+        .buy-btn:hover {
+            background-color: #c0392b;
+        }
+        
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 0;
+            margin-top: 60px;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+        }
+        
+        .footer-section h3 {
+            font-size: 18px;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #e74c3c;
+            padding-bottom: 10px;
+            display: inline-block;
+        }
+        
+        .footer-section p {
+            margin-bottom: 10px;
+            color: #ccc;
+        }
+        
+        .footer-links {
+            list-style: none;
+        }
+        
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            color: #ccc;
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .products {
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container header-container">
+            <div class="logo">FashionStore</div>
+            <div class="header-right">
+                <div class="header-icons">
+                    <a href="conta.html" class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                            <circle cx="12" cy="7" r="4"></circle>
+                        </svg>
+                    </a>
+                    <a href="carrinho.html" class="icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <circle cx="9" cy="21" r="1"></circle>
+                            <circle cx="20" cy="21" r="1"></circle>
+                            <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                        </svg>
+                        <span>0</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <nav class="navigation">
+        <div class="container">
+            <ul class="nav-links">
+                <li><a href="masculino.html">Masculino</a></li>
+                <li><a href="feminino.html">Feminino</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <main>
+        <div class="container">
+            <h2 class="section-title">Ofertas com Desconto</h2>
+            <div class="products">
+                <div class="product-wrapper">
+                    <div class="product-card" id="Camiseta Básica Masculina">
+                        <img src="camiseta-basica-masculina.jpg" alt="Camiseta Básica Masculina" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Camiseta Básica Masculina</h3>
+                            <div class="product-price">
+                                <span class="original-price">R$ 89,90</span>
+                                <span class="discount-price">R$ 59,90</span>
+                                <span class="discount-tag">-33%</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <div class="product-card" id="Vestido Midi Floral">
+                        <img src="vestido-mid-floral.jpg" alt="Vestido Midi Floral" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Vestido Midi Floral</h3>
+                            <div class="product-price">
+                                <span class="original-price">R$ 159,90</span>
+                                <span class="discount-price">R$ 99,90</span>
+                                <span class="discount-tag">-37%</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <div class="product-card" id="Jaqueta Jeans Oversized">
+                        <img src="jaqueta-jeans.jpg" alt="Jaqueta Jeans Oversized" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Jaqueta Jeans Oversized</h3>
+                            <div class="product-price">
+                                <span class="original-price">R$ 199,90</span>
+                                <span class="discount-price">R$ 149,90</span>
+                                <span class="discount-tag">-25%</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <div class="product-card" id="Calça Jeans Slim Fit">
+                        <img src="calca-jeans-slim.jpg" alt="Calça Jeans Slim Fit" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Calça Jeans Slim Fit</h3>
+                            <div class="product-price">
+                                <span class="original-price">R$ 149,90</span>
+                                <span class="discount-price">R$ 99,90</span>
+                                <span class="discount-tag">-33%</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <h2 class="section-title">Mais Vendidos</h2>
+            <div class="products">
+                <div class="product-wrapper">
+                    <span class="bestseller-tag">Mais Vendido</span>
+                    <div class="product-card" id="Tênis Casual Branco">
+                        <img src="tenis-casual-branco.jpg" alt="Tênis Casual Branco" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Tênis Casual Branco</h3>
+                            <div class="product-price">
+                                <span class="discount-price">R$ 179,90</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <span class="bestseller-tag">Mais Vendido</span>
+                    <div class="product-card" id="Blusa de Moletom Oversized">
+                        <img src="blusa-moletom.jpg" alt="Blusa de Moletom Oversized" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Blusa de Moletom Oversized</h3>
+                            <div class="product-price">
+                                <span class="discount-price">R$ 129,90</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <span class="bestseller-tag">Mais Vendido</span>
+                    <div class="product-card" id="Bolsa Tote de Couro">
+                        <img src="bolsa-tote-couro.jpg" alt="Bolsa Tote de Couro" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Bolsa Tote de Couro</h3>
+                            <div class="product-price">
+                                <span class="discount-price">R$ 249,90</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="product-wrapper">
+                    <span class="bestseller-tag">Mais Vendido</span>
+                    <div class="product-card" id="Calça Alfaiataria">
+                        <img src="calca-alfaiataria.jpg" alt="Calça Alfaiataria" class="product-image">
+                        <div class="product-info">
+                            <h3 class="product-name">Calça Alfaiataria</h3>
+                            <div class="product-price">
+                                <span class="discount-price">R$ 119,90</span>
+                            </div>
+                            <button class="buy-btn">Adicionar ao Carrinho</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Sobre a Estilo Moderno</h3>
+                    <p>Somos uma loja especializada em moda contemporânea para homens e mulheres. Nossa missão é oferecer peças de qualidade a preços acessíveis.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Horário de Atendimento</h3>
+                    <p>Segunda a Sexta: 9h às 20h</p>
+                    <p>Sábados: 9h às 18h</p>
+                    <p>Domingos e Feriados: 12h às 16h</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>SAC</h3>
+                    <p>Telefone: (11) 5555-5555</p>
+                    <p>WhatsApp: (11) 99999-9999</p>
+                    <p>Email: sac@estilomoderno.com.br</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Troca</a></li>
+                        <li><a href="#">Termos e Condições</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Rastreamento de Pedidos</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Estilo Moderno. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
